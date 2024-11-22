@@ -1,0 +1,29 @@
+# Running simple commit to keep repository active. Otherwise, GitHub Actions will be disabled after 60 days of inactivity.
+name: Keep Alive
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'  # Run monthly
+
+permissions:
+  contents: write
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update timestamp
+        run: |
+          date > timestamp
+#      - name: Commit changes
+#        run: |
+#          git config --local user.email "action@github.com"
+#          git config --local user.name "GitHub Action"
+#          git add timestamp
+#          git commit -m "chore: keep repository active"
+#          git push
+      - name: Commit changes to documentation
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Keep active: Running simple commit to keep repository active. Otherwise, GitHub Actions will be disabled after 60 days of inactivity."
