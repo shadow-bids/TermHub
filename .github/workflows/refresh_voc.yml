@@ -1,7 +1,8 @@
 name: Refresh vocabulary tables
 
 on:
-# todo: schedule deactivated as it takes >6 hours right now, above maximum limit. See: https://github.com/jhu-bids/TermHub/issues/983
+# !: Deactivated 2024/11 because now, due to recent increased memory for free GitHub acitons, it seems we no longer need these premium runners! And we no longer need this shadow-bids setup.
+# todo: schedule deactivated as it occasionally takes >6 hours right now, above maximum limit. See: https://github.com/jhu-bids/TermHub/issues/983
 #  schedule:
 ##    - cron: '0 0 * * 0'  # weekly, sunday 12am
 ## todo: consider more than a 2 hour spread between counts and vocab refresh
